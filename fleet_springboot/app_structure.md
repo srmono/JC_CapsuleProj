@@ -1,18 +1,23 @@
 ### **File Structure**
+
+### **File Structure**
 ```
 src/main/java/com/fleetsystem/
-├── controller/
+├── controller/                     req/
 │   └── TruckController.java
-├── dto/
+├── dto/                            data  
 │   └── TruckDTO.java
-├── entity/
+├── entity/                         truck, driver, maintenance, route etc..
 │   └── Truck.java
-├── repository/
+├── repository/                     data jpa --> db 
 │   └── TruckRepository.java
-├── service/
+├── service/                        business logic
 │   └── TruckService.java
-├── exception/
+├── exception/                      error/exception handling 
 │   ├── GlobalExceptionHandler.java
 │   └── TruckNotFoundException.java
 └── FleetSystemApplication.java
 
+utility
+    emails
+    ...
