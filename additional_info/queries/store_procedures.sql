@@ -81,6 +81,7 @@ tored procedures with Stored Functions
  */
 --------------------------------------------------------------
 -- Return all rows in the table customers
+
 SELECT
     customerName,
     city,
@@ -103,8 +104,10 @@ ORDER BY
 -- +-------------------------+--------------+-------+------------+-----------+
 -- 5 rows in set (0.00 sec)
 -- Create a Stored Procedure for the above query 
+
 DELIMITER $$
-CREATE PROCEDURE GetCustomers() 
+
+CREATE PROCEDURE GetCustomerDetails() 
 BEGIN
     SELECT
         customerName,
@@ -116,8 +119,8 @@ BEGIN
         customers
     ORDER BY
         customerName;
-END $$
-DELIMITER;
+END$$
+DELIMITER ;
 
 -----------------
 -- Change the default delimiter

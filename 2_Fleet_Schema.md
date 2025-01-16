@@ -82,7 +82,7 @@ INSERT INTO Route (startLocation, endLocation, details) VALUES
 
 - **Retrieve all operational trucks:**
   ```sql
-  SELECT * FROM Truck WHERE status = 'Operational';
+EXPLAIN SELECT * FROM Truck WHERE status = 'Operational';
   ```
 
 - **Find maintenance records for a specific truck:**
