@@ -1,0 +1,5 @@
+{
+    "trucks": [
+        {"id":1, "model": "Nissan Truck", "status": "OPERATIONAL", "details": "This is a delivery truck"}
+    ]
+}
