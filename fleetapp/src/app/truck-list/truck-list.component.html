@@ -15,9 +15,58 @@
             <td> {{ truck.status  }} </td>
             <td> {{ truck.details  }} </td>
             <td>
+                <a [routerLink]="['/truck', truck.id ]"> View Details</a>
+            </td>
+            <td>
                 <button class="btn btn-primary btn-sm"> Edit </button>
                 <button class="btn btn-danger btn-sm"> Delete </button>
             </td>
         </tr>
     </tbody>
 </table>
+
+
+ <!-- Pagination Controls -->
+ <nav aria-label="Truck pagination">
+
+    <ul class="pagination justify-content-center">
+      <!-- Previous Button -->
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button
+          class="page-link"
+
+          (click)="goToPage(currentPage - 1)"
+          
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">&laquo;</span>
+
+        </button>
+      </li>
+
+      <!-- Page Numbers -->
+      <li
+        class="page-item"
+        *ngFor="let page of pages"
+        [class.active]="page === currentPage"
+      >
+        <button class="page-link" (click)="goToPage(page)">
+          {{ page }}
+        </button>
+      </li>
+
+      <!-- Next Button -->
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button
+          class="page-link"
+          (click)="goToPage(currentPage + 1)"
+          aria-label="Next"
+        >
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+
+<div> test</div>

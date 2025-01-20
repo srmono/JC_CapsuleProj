@@ -1,5 +1,94 @@
 {
-    "trucks": [
-        {"id":1, "model": "Nissan Truck", "status": "OPERATIONAL", "details": "This is a delivery truck"}
-    ]
+  "trucks": [
+    {
+      "id": 1,
+      "model": "Nissan Truck",
+      "status": "OPERATIONAL",
+      "details": "This is a delivery truck"
+    },
+    {
+      "id": 2,
+      "model": "TATA Truck",
+      "status": "MAINTENANCE",
+      "details": "This is a delivery truck"
+    },
+    {
+      "id": 3,
+      "model": "Ford F-150",
+      "status": "OPERATIONAL",
+      "details": "Lightweight truck for smaller loads"
+    },
+    {
+      "id": 4,
+      "model": "Ashok Leyland",
+      "status": "IN TRANSIT",
+      "details": "Heavy-duty long-haul truck"
+    },
+    {
+      "id": 5,
+      "model": "Volvo FH16",
+      "status": "OPERATIONAL",
+      "details": "Truck for transporting heavy machinery"
+    },
+    {
+      "id": 6,
+      "model": "Mahindra Blazo",
+      "status": "MAINTENANCE",
+      "details": "Truck with fuel-efficient engine"
+    },
+    {
+      "id": 7,
+      "model": "Scania R-Series",
+      "status": "OPERATIONAL",
+      "details": "Truck designed for urban deliveries"
+    },
+    {
+      "id": 8,
+      "model": "Isuzu N-Series",
+      "status": "IN TRANSIT",
+      "details": "Reliable truck for everyday tasks"
+    },
+    {
+      "id": 9,
+      "model": "Mercedes-Benz Actros",
+      "status": "OPERATIONAL",
+      "details": "Luxurious truck for long drives"
+    },
+    {
+      "id": 10,
+      "model": "Eicher Pro",
+      "status": "MAINTENANCE",
+      "details": "Economical truck with high capacity"
+    },
+    {
+      "id": 11,
+      "model": "MAN TGX",
+      "status": "OPERATIONAL",
+      "details": "Premium truck for heavy-duty jobs"
+    },
+    {
+      "id": 12,
+      "model": "Hino 500 Series",
+      "status": "IN TRANSIT",
+      "details": "Durable truck for rural areas"
+    },
+    {
+      "id": 13,
+      "model": "Fuso Canter",
+      "status": "OPERATIONAL",
+      "details": "Compact truck for tight spaces"
+    },
+    {
+      "id": 14,
+      "model": "DAF XF",
+      "status": "OPERATIONAL",
+      "details": "Truck with advanced safety features"
+    },
+    {
+      "id": 15,
+      "model": "Kenworth T680",
+      "status": "MAINTENANCE",
+      "details": "Aerodynamic truck for fuel efficiency"
+    }
+  ]
 }

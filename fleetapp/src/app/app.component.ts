@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TruckComponent } from './truck/truck.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TruckListComponent } from './truck-list/truck-list.component';
 
@@ -9,7 +8,6 @@ import { TruckListComponent } from './truck-list/truck-list.component';
   standalone: true,
   imports: [
     RouterOutlet, 
-    TruckComponent, 
     NavbarComponent, 
     TruckListComponent
   ],
