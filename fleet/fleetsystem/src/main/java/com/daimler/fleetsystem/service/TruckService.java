@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,6 +70,13 @@ public class TruckService {
         return mapToDTO(updatedTruck);
     }
 
+
+    //Pagination
+    public Page<TruckDTO> getTrucks(Pageable pageable){
+       Page<Truck> truckPage =  truckRepository.findAll(pageable);
+
+       return truckPage.map(this::mapToDTO);
+    }
 
     //Delete Truck
     public void deleteTruck(Long id){

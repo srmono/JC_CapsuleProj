@@ -16,7 +16,7 @@ export interface Truck {
 
 export class TruckService {
 
-  private apiUrl = `http://localhost:3001/trucks`;
+  private apiUrl = `http://localhost:3001/trucks`;// replace this with springboot api 
 
   constructor(
     private http: HttpClient

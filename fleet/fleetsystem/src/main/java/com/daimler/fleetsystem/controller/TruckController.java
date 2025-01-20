@@ -2,8 +2,12 @@ package com.daimler.fleetsystem.controller;
 
 import com.daimler.fleetsystem.dto.TruckDTO;
 import com.daimler.fleetsystem.entity.Truck;
+import org.springframework.data.domain.Page;
 import com.daimler.fleetsystem.service.TruckService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,5 +70,19 @@ public class TruckController {
         return  ResponseEntity.ok("Truck Deleted Successfully");
     }
 
+    //Pagination End point
+    @GetMapping("/paginated")
+    public ResponseEntity<Page<TruckDTO>> getPaginatedTrucks(
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "2") int size,
+        @RequestParam(defaultValue = "id,asc") String[] sort
+    ){
+        Sort.Direction direction = Sort.Direction.fromString(sort[1]);
+        Pageable pageable = PageRequest.of( page, size, Sort.by(direction, sort[0]) );;
+
+        Page<TruckDTO> paginatedTrucks = truckService.getTrucks(pageable);
+
+        return ResponseEntity.ok(paginatedTrucks);
+    }
 
 }

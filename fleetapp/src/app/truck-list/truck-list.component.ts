@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TruckListComponent implements OnInit {
   trucks: Truck[] = [];
-  limit: number = 2; // Items per page
+  limit: number = 5; // Items per page
   totalItmes: number = 0; // Total items from API
   totalPages: number = 0; // Total pages
   currentPage: number = 1; // Current page
@@ -25,14 +25,17 @@ export class TruckListComponent implements OnInit {
   }
 
   fetchTrucks(page: number): void {
-    const start = (page - 1) * this.limit; // Calculate offset
+    const start = (page - 1) * this.limit; // Calculate offset 
   
     // Fetch paginated data
     this.truckService.getTrucksWithOffset(start, this.limit).subscribe((data) => {
+      // data? structure?
+      // clg(data)
       this.trucks = data; // Update trucks list
   
       // Fetch all trucks to calculate total items
       this.truckService.getTotalTrucks().subscribe((totalCount) => {
+
         this.totalItmes = totalCount; // Total items
         this.totalPages = Math.ceil(this.totalItmes / this.limit); // Total pages
         this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1); // Pages array
