@@ -36,17 +36,27 @@ export class TruckService {
     return this.http.get<any>(`${this.apiUrl}?_start=${start}&_limit=${limit}`);
   }
 
+  // Fetch all trucks to calculate the total count
   getTotalTrucks(): Observable<number> {
-    return this.http
-      .get<any>(`${this.apiUrl}?_start=0&_limit=1`, { observe: 'response' })
+    return this.http.get<Truck[]>(
+      `${this.apiUrl}`)
       .pipe(
-        map((response) => {
-          // Extract the total count from the response headers
-          const totalCount = Number(response.headers.get('x-total-count'));
-          return totalCount;
-        })
-      );
+        map((trucks) => trucks.length) // Return the total count based on array length
+    );
   }
+
+
+  // getTotalTrucks(): Observable<number> {
+  //   return this.http
+  //     .get<any>(`${this.apiUrl}?_start=0&_limit=1`, { observe: 'response' })
+  //     .pipe(
+  //       map((response) => {
+  //         // Extract the total count from the response headers
+  //         const totalCount = Number(response.headers.get('x-total-count'));
+  //         return totalCount;
+  //       })
+  //     );
+  // }
 
   //createTruck
   //updateTruck
