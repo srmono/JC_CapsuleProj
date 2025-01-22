@@ -16,7 +16,13 @@ export interface Truck {
 
 export class TruckService {
 
+//private apiUrl = 'http://172.22.0.3:8081/api/trucks';
+
+//private apiUrl = `http://springboot-container:8081/api/trucks`
+
+
 //  private apiUrl = `http://localhost:3001/trucks`;// replace this with springboot api 
+//private apiUrl = `http://springboot-container:8081/api/trucks`;// replace this with springboot api 
 private apiUrl = `http://localhost:8081/api/trucks`;// replace this with springboot api 
 
   constructor(

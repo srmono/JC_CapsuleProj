@@ -13,16 +13,16 @@ public class TruckDTO {
     private String status;
     private String details;
 
-    public TruckDTO(Long id, String model, String status, String details) {
-        this.id = id;
-        this.model = model;
-        this.status = status;
-        this.details = details;
-    }
+//    public TruckDTO(Long id, String model, String status, String details) {
+//        this.id = id;
+//        this.model = model;
+//        this.status = status;
+//        this.details = details;
+//    }
 
     // Default constructor
-    public TruckDTO() {
-    }
+//    public TruckDTO() {
+//    }
 
     public Long getId() {
         return id;

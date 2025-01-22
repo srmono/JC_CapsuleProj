@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*") // Allow all origins ["http://locahost:4200", "host details"]
+@CrossOrigin(origins = "http://localhost:4200") // Allow all origins ["http://locahost:4200", "host details"]
 @RequestMapping("/api/trucks")
 public class TruckController {
 
