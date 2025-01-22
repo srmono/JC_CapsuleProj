@@ -1,0 +1,146 @@
+
+
+cors ?
+
+cross origin 
+
+angular is running on another server: 4200
+
+springboot is running on tomcat: 8081
+
+
+
+
+
+
+Backend
+	docker network
+
+	springboot app  -> 	conatiner (vm/another machine)
+				Dockerfile
+
+	mysql		->      new container (volume) 
+
+
+ 	db		-> on host machine
+
+
+1. Build springboot app  		done
+	prepare for containerization
+	spring.datasource.url=jdbc:mysql://host.docker.internal:3306/fleet
+
+	build app -->  app artifact app_name.jar
+
+	target/artifact app_name.jar
+
+note: 	java -jar artifact app_name.jar
+	start successfully 
+
+
+
+
+2. dockerfile 				Done
+
+3. create docker image (SB + MySQL)
+			
+a	docker build -t ustapi/fleetsystem:latest
+	docker build -t user/image_name:tag
+
+
+	
+4. deploy on container
+
+network			: docker network create fleet-network
+mysql container 	: 
+
+	docker run -d --name mysql-container --network fleet-network -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=fleet -p 3306:3306 mysql:8
+
+docker run -d --name mysql-container --network fleet-network -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=fleet -p 3306:3306 mysql:8
+
+	docker rm mysql-container
+
+docker run -d --name mysql-container \
+	--network fleet-network \
+	-e MYSQL_ROOT_PASSWORD:password \
+	-e MYSQL_DATABASE=fleet \
+	-p 3306:3306  \
+	mysql:8 
+
+	
+updated properties file
+
+Deploy springboot app on container
+	-p  host_port:container_port
+
+docker run -d -p 8082:8081 --name springboot-container --network fleet-network ustapi/fleet-system
+
+	sb app + mysql  container
+
+
+
+docker run -d --name angular-container --network fleet-network -p 4200:4200 ustapi/fleet-app
+
+
+http://springboot-container:8081/api/trucks
+
+---------
+
+push to docker hub
+
+docker login
+
+docker push ustapi/fleetsystem:latest
+
+
+
+
+
+
+
+docker pull ustapi/new-app:latest
+docker pull ustapi/fleetsystem:latest
+
+docker network create fleet-network
+docker run -d --name mysql-container --network fleet-network -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=fleet -p 3306:3306 mysql:8
+docker run -d -p 8081:8081 --name springboot-container --network fleet-network ustapi/fleetsystem
+docker run -d --name angular-container --network fleet-network -p 4200:4200 ustapi/new-app:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
