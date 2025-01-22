@@ -4,10 +4,10 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 export interface Truck {
-  id: number,
-  model: string,
-  status: string,
-  details: string
+  id: number;
+  model: string;
+  status: string;
+  details: string;
 }
 
 @Injectable({
@@ -16,7 +16,8 @@ export interface Truck {
 
 export class TruckService {
 
-  private apiUrl = `http://localhost:3001/trucks`;// replace this with springboot api 
+//  private apiUrl = `http://localhost:3001/trucks`;// replace this with springboot api 
+private apiUrl = `http://localhost:8081/api/trucks`;// replace this with springboot api 
 
   constructor(
     private http: HttpClient
@@ -33,7 +34,7 @@ export class TruckService {
 
   //Pagination API CALL
   getTrucksWithOffset(start: number, limit: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}?_start=${start}&_limit=${limit}`);
+    return this.http.get<any>(`${this.apiUrl}/paginated?page=${start}&size=${limit}`);
   }
 
   // Fetch all trucks to calculate the total count

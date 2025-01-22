@@ -25,25 +25,22 @@ export class TruckListComponent implements OnInit {
   }
 
   fetchTrucks(page: number): void {
-    const start = (page - 1) * this.limit; // Calculate offset 
+    const backendPage = page - 1; // Convert to 0-based page index for backend
   
     // Fetch paginated data
-    this.truckService.getTrucksWithOffset(start, this.limit).subscribe((data) => {
-      // data? structure?
-      // clg(data)
-      this.trucks = data; // Update trucks list
+    this.truckService.getTrucksWithOffset(backendPage, this.limit).subscribe((data) => {
+      console.log(data); // Debug response
   
-      // Fetch all trucks to calculate total items
-      this.truckService.getTotalTrucks().subscribe((totalCount) => {
-
-        this.totalItmes = totalCount; // Total items
-        this.totalPages = Math.ceil(this.totalItmes / this.limit); // Total pages
-        this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1); // Pages array
-      });
+      // Assign values from the backend response
+      this.trucks = data.content; // Truck list
+      this.totalItmes = data.totalElements; // Total items from backend
+      this.totalPages = data.totalPages; // Total pages from backend
+      this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1); // Update pagination
     });
   
-    this.currentPage = page; // Update current page
+    this.currentPage = page; // Update current page in the frontend
   }
+  
 
   // fetchTrucks(page: number): void {
   //   const start = (page - 1) * this.limit; // Calculate offset

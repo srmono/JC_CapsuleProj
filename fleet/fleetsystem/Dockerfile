@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 #COPY the JAE file to the container
-COPY target/fleetsystem.jar  app.jar
+COPY target/fleetsystem-0.0.1-SNAPSHOT.jar  app.jar
 
 #Expose the application port
 EXPOSE 8081
